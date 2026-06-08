@@ -1,17 +1,17 @@
 pipeline {
+
     agent any
 
     tools {
+        jdk 'JDK17'
         maven 'Maven'
-        jdk 'JDK'
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/ritika2004/https://github.com/ritika2004/Wipro2026.git'
+                checkout scm
             }
         }
 
@@ -27,39 +27,39 @@ pipeline {
             }
         }
 
-        stage('Execute Tests') {
+        stage('Run TestNG Tests') {
             steps {
                 bat 'mvn test'
             }
         }
+        stage('Docker Build') {
+    steps {
+        bat 'docker build -t blazedemo-automation .'
+    }
+}
 
-        stage('Generate Reports') {
-            steps {
-                junit '**/surefire-reports/*.xml'
-            }
-        }
-
-        stage('Archive Screenshots') {
-            steps {
-                archiveArtifacts artifacts: 'screenshots/*.png',
-                fingerprint: true
-            }
-        }
+stage('Docker Run') {
+    steps {
+        bat 'docker run --rm blazedemo-automation'
+    }
+}
     }
 
     post {
 
         always {
-            archiveArtifacts artifacts: 'target/surefire-reports/*.*',
-            fingerprint: true
+
+            archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
+
+            archiveArtifacts artifacts: 'test-output/**/*.*', allowEmptyArchive: true
         }
 
         success {
-            echo 'Automation Execution Successful'
+            echo 'BlazeDemo Automation Executed Successfully'
         }
 
         failure {
-            echo 'Automation Execution Failed'
+            echo 'BlazeDemo Automation Failed'
         }
     }
 }
