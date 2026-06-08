@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/your-username/your-repository.git'
+                url: 'https://github.com/ritika2004/https://github.com/ritika2004/Wipro2026.git'
             }
         }
 
