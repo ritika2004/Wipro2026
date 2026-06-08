@@ -1,6 +1,5 @@
 pipeline {
 
-```
 agent any
 
 environment {
@@ -71,6 +70,6 @@ post {
         echo 'BlazeDemo Automation Failed'
     }
 }
-```
+
 
 }
