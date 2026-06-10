@@ -38,7 +38,7 @@ public class BlazeDemoTest extends Base {
             System.out.println("-----TEST STARTED ------");
 
            
-
+            driver.get("https://blazedemo.com/");
             HomePage hp = new HomePage(driver);
 
             System.out.println("Searching Flights");
