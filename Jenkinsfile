@@ -17,12 +17,13 @@ stages {
     }
 
     stage('Verify Environment') {
-        steps {
-            bat 'echo JAVA_HOME=%JAVA_HOME%'
-            bat 'java -version'
-            bat 'mvn -version'
-        }
+    steps {
+        bat 'echo JAVA_HOME=%JAVA_HOME%'
+        bat 'java -version'
+        bat 'mvn -version'
+        bat 'docker --version'
     }
+}
 
     stage('Clean Project') {
         steps {
