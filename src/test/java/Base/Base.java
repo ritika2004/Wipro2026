@@ -14,7 +14,7 @@ import java.time.Duration;
 public class Base {
 
     public static WebDriver driver;
-
+ 
     @BeforeMethod
     public void setup() {
 
