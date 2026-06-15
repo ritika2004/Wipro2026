@@ -58,6 +58,7 @@ stages {
 
 post {
 
+
     always {
         archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
         archiveArtifacts artifacts: 'test-output/**/*.*', allowEmptyArchive: true

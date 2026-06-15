@@ -5,8 +5,8 @@
     <classes>
       <class name="Testcases.BlazeDemoTest">
         <methods>
-          <include name="fullFlowTest" invocation-numbers="0"/>
           <include name="setup"/>
+          <include name="fullFlowTest" invocation-numbers="1"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Testcases.BlazeDemoTest -->
